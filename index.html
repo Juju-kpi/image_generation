@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Qwen Image Generator</title>
+</head>
+<body>
+    <h1>Générateur d'images Qwen</h1>
+    <form method="post">
+        <label for="prompt">Prompt :</label><br>
+        <textarea name="prompt" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="aspect">Format :</label>
+        <select name="aspect">
+            <option value="1:1">1:1</option>
+            <option value="16:9" selected>16:9</option>
+            <option value="9:16">9:16</option>
+        </select><br><br>
+
+        <button type="submit">Générer</button>
+    </form>
+
+    {% if image_path %}
+        <h2>Résultat :</h2>
+        <img src="{{ image_path }}" alt="Image générée" width="512"><br>
+        <a href="{{ image_path }}" download>Télécharger</a>
+    {% endif %}
+</body>
+</html>
